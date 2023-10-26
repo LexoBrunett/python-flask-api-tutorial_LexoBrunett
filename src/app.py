@@ -31,8 +31,8 @@ def add_new_todo():
 
 @app.route('/todos/<int:position>', methods=['DELETE'])
 def delete_todo(position):
-    new_todos = list(filter(lambda item: item.get('position') == position, todos))
-    return jsonify(new_todos)
+    del todos[position]
+    return jsonify(todos)
 
 # These two lines should always be at the end of your app.py file.
 if __name__ == '__main__':
